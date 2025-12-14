@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="assets/css/theme.bundle.css" id="stylesheetLTR">
+    <link rel="stylesheet" href="assets/css/theme.rtl.bundle.css" id="stylesheetRTL">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&amp;display=swap">
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&amp;display=swap">
+
+    <!-- no-JS fallback -->
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&amp;display=swap">
+    </noscript>
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
+    <link rel="stylesheet" href="//cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css" />
+
+    <!-- Demo script -->
+    <script>
+        var themeConfig = {
+            theme: JSON.parse('"light"'),
+            isRTL: JSON.parse('false'),
+            isFluid: JSON.parse('true'),
+            sidebarBehaviour: JSON.parse('"fixed"'),
+            navigationColor: JSON.parse('"inverted"')
+        };
+
+        var isRTL = localStorage.getItem('isRTL') === 'true',
+            isFluid = localStorage.getItem('isFluid') === 'true',
+            theme = localStorage.getItem('theme'),
+            sidebarSizing = localStorage.getItem('sidebarSizing'),
+            linkLTR = document.getElementById('stylesheetLTR'),
+            linkRTL = document.getElementById('stylesheetRTL'),
+            html = document.documentElement;
+
+        if (isRTL) {
+            linkLTR.setAttribute('disabled', '');
+            linkRTL.removeAttribute('disabled');
+            html.setAttribute('dir', 'rtl');
+        } else {
+            linkRTL.setAttribute('disabled', '');
+            linkLTR.removeAttribute('disabled');
+            html.removeAttribute('dir');
+        }
+    </script>
+
+    <!-- Page Title -->
+    <title>Product</title>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav id="mainNavbar" class="navbar navbar-vertical navbar-expand-lg scrollbar bg-dark navbar-dark">
+
+        <div class="container-fluid">
+
+            <!-- Brand -->
+            <a class="d-flex flex-column align-items-center" href="admin-dashbord.html">
+                <img src="logo.png" class="navbar-brand-img" alt="...">
+                <span class="text-white fw-bold fs-20">ADMIN</span>
+            </a>
+
+            <!-- Navbar toggler -->
+            <a href="javascript: void(0);" class="navbar-toggler" data-bs-toggle="collapse"
+                data-bs-target="#sidenavCollapse" aria-controls="sidenavCollapse" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </a>
+
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="sidenavCollapse">
+
+                <!-- Navigation -->
+                <ul class="navbar-nav mb-lg-7">
+                    <li class="nav-item w-100">
+                        <hr>
+                    </li>
+                    <li class="nav-item dropdown  justify-content-between">
+                        <a class="nav-link active mb-2" href="admin-dashbord.html">
+                            <span>Dashboards</span>
+                        </a>
+                        <a class="nav-link active mb-2" href="admin-category.html">
+                            <span>Category</span>
+                        </a>
+                        <a class="nav-link active mb-2" href="admin-product.html">
+                            <span>product</span>
+                        </a>
+                        <a class="nav-link active mb-2" href="admin-order.html">
+                            <span>Order</span>
+                            <a class="nav-link active mb-2" href="admin-slider.html">
+                                <span>Slider</span>
+                            </a>
+                            <a class="nav-link active mb-2" href="admin-pincode.html">
+                                <span>Pincode</span>
+                            </a>
+                            <a class="nav-link active mb-2" href="admin-shipping.html">
+                                <span>Shipping</span>
+                            </a>
+                    </li>
+                    <li class="nav-item w-100">
+                        <hr>
+                    </li>
+                </ul>
+                <!-- End of Navigation -->
+            </div>
+            <!-- End of Collapse -->
+        </div>
+    </nav>
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- HEADER -->
+
+        <div class="container-fluid">
+
+            <!-- Title -->
+            <h1 class="h2 bg-dark text-white p-2 mb-4 card">
+                Product
+            </h1>
+            <main class="content">
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header text-bg-dark d-flex justify-content-between">
+                                    <h4 class="mb-0">Existing Product</h4>
+                                    <a class="btn btn-primary" href="admin-add-product.html">Add new</a>
+                                </div>
+                                <div class="card-body">
+                                    <!-- Table with Data -->
+                                    <table id="myTable" class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th width="5%">Sr no</th>
+                                                <th width="25%">Title</th>
+                                                <th width="25%">Image</th>
+                                                <th width="05%">Price</th>
+                                                <th width="05%">Stock</th>
+                                                <th width="05%">is Live?</th>
+                                                <th width="10%">Operations</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>IPhone 16 pro max <br />
+                                                    (Smart Phone)
+                                                </td>
+                                                <td>
+                                                    <a href="http://picsum.photos/50" data-fancybox="gallery"
+                                                        data-caption="Smartphone">
+                                                        <img src="http://picsum.photos/50" width="" height="50"
+                                                            class="rounded-circle me-2" alt="Avatar">
+                                                    </a>
+                                                </td>
+                                                <td>Rs 125000</td>
+                                                <td>65</td>
+                                                <td>Yes</td>
+                                                <td class="d-flex justify-content-between align-items-center p-5">
+                                                    <a href="admin-edit-product.html" title="edit">
+                                                        <i class="fa fa-pencil fa-2x"></i>
+                                                    </a>
+                                                    <a href="admin-view-product.html">
+                                                        <i class="fa fa-eye fa-2x"></i>
+                                                    </a>
+                                                    <a href="#" class="text-danger" title="delete"><i
+                                                            class="fa fa-trash fa-2x"></i></a>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <!-- End Table with Data -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <!-- Footer -->
+        <footer class="mt-auto">
+            <div class="container-fluid mt-4 mb-6 text-muted">
+                <div class="row justify-content-between">
+                    <div class="col">
+                        © TSM. 2025.
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <script src="assets/js/theme.bundle.js"></script>
+
+    <script src="https://kit.fontawesome.com/20994dd270.js" crossorigin="anonymous"></script>
+
+    <!-- Include jQuery and FancyBox JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.0/dist/jquery.fancybox.min.js"></script>
+    <script src="//cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+    <script>
+        // Initialize DataTable
+        let table = new DataTable('#myTable');
+        // Initialize FancyBox
+        $("[data-fancybox='gallery']").fancybox({
+            buttons: [
+                "zoom",
+                "slideShow",
+                "thumbs",
+                "close"
+            ],
+            loop: true,
+            protect: true
+        });
+    </script>
+</body>
+
+</html>
