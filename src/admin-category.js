@@ -58,7 +58,7 @@ export default function AdminCategory() {
               }
               width={50}
               height={50}
-              className="rounded-circle me-2"
+              className="rounded-circle me-2" 
               alt="Avatar"
             />
           </a>
